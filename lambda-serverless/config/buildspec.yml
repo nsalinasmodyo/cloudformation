@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        python: 3.8
+  build:
+    commands:
+      - ls -ltr
+      - aws cloudformation package --template-file lambda-serverless/template.yml --s3-bucket ${S3_BUCKET} --output-template-file output.yml
+artifacts:
+  type: zip
+  files:
+    - template.yml
+    - output.yml
