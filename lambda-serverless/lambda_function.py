@@ -3,6 +3,7 @@ import os
 from boto3.dynamodb.conditions import Key
 
 DYNAMO_BD = os.environ['DYNAMO_BD']
+TEST = os.environ['TEST']
 
 class DynamoAccessor:
     def __init__(self, dynamo_table):
@@ -10,6 +11,8 @@ class DynamoAccessor:
         self.table = dynamo_db.Table(dynamo_table)
 
     def get_data_from_dynamo(self, cc):
+        print('get_data_from_dynamo')
+        print(TEST)
         response = self.table.query(KeyConditionExpression=Key('cc').eq(cc))
         return response["Items"][0] if any(response["Items"]) else None
 

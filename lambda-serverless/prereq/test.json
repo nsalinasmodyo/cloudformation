@@ -1,0 +1,85 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:GetBucketVersioning"
+            ],
+            "Resource": [
+                "arn:aws:s3:::codepipeline-artifacts-bucket-767679137486-us-east-1/*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "codebuild:BatchGetBuilds",
+                "codebuild:BatchGetProjects",
+                "codebuild:ListBuilds",
+                "codebuild:ListBuildsForProject",
+                "codebuild:ListConnectedOAuthAccounts",
+                "codebuild:ListProjects",
+                "codebuild:ListRepositories",
+                "codebuild:StartBuild",
+                "codebuild:StopBuild",
+                "sns:Publish",
+                "cloudwatch:*",
+                "lambda:InvokeFunction",
+                "lambda:ListFunctions",
+                "lambda:CreateFunction",
+                "lambda:DeleteFunction",
+                "lambda:GetFunction",
+                "s3:*"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "kms:DescribeKey",
+                "kms:GenerateDataKey*",
+                "kms:Encrypt",
+                "kms:ReEncrypt*",
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:us-east-1:767679137486:key/ff8c782e-1565-49d4-9fa4-969a3fe36fc9"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "codestar-connections:UseConnection",
+            "Resource": "arn:aws:codestar-connections:us-east-1:767679137486:connection/a87d2b3d-6a15-4dd9-83b9-bdfcfd354852"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:DescribeStacks",
+                "cloudformation:CreateStack",
+                "cloudformation:CreateChangeSet",
+                "cloudformation:DeleteChangeSet",
+                "cloudformation:DescribeChangeSet"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:AttachRolePolicy",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:DetachRolePolicy",
+                "iam:GetRole",
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}

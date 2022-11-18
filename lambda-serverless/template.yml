@@ -13,6 +13,7 @@ Resources:
         Environment:
             Variables:
                 DYNAMO_BD: !ImportValue DynamoNsalinas
+                TEST: !Sub '{{resolve:secretsmanager:nsalinas/prueba:SecretString:nsalinas_test}}'
     LambdaRole:
       Type: AWS::IAM::Role
       Properties:
