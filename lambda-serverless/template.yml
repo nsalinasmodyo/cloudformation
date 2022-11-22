@@ -6,7 +6,7 @@ Resources:
       Properties:
         VpcConfig:
           SecurityGroupIds:
-            - !ImportValue NoIngressSecurityGroup
+            - !ImportValue GroupId
           SubnetIds:
             - !ImportValue PublicSubnet1
         FunctionName: NsalinasLambda

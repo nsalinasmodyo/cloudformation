@@ -12,7 +12,7 @@ Resources:
         Types: 
           - PRIVATE
         VpcEndpointIds: 
-          - vpc-04cf7037aced61c50 
+          - !ImportValue VpcId
 
   Method:
     Type: AWS::ApiGateway::Method
