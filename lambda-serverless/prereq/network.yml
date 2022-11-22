@@ -89,3 +89,24 @@ Resources:
         GroupName: "no-ingress-sg"
         GroupDescription: "Security group with no ingress rule"
         VpcId: !Ref VPC
+
+Outputs:
+  VPC:
+    Value: !GetAtt VPC.VpcId
+    Export:
+        Name: VpcId 
+  PublicSubnet1:
+    Value: !GetAtt PublicSubnet1.SubnetId
+    Export:
+        Name: PublicSubnetId
+  PrivateSubnet1:
+    Value: !GetAtt PrivateSubnet1.SubnetId
+    Export:
+        Name: PrivateSubnetId
+  NoIngressSecurityGroup:
+    Value: !GetAtt NoIngressSecurityGroup.GroupId
+    Export:
+        Name: GroupId
+
+
+            
