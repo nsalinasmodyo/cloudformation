@@ -5,10 +5,10 @@ Resources:
       Type: AWS::Serverless::Function
       Properties:
         VpcConfig:
-        SecurityGroupIds:
-          - sg-08bf0464ef5fbba52
-        SubnetIds:
-          - subnet-0ec78e3132341358a
+          SecurityGroupIds:
+            - sg-08bf0464ef5fbba52
+          SubnetIds:
+            - subnet-0ec78e3132341358a
         FunctionName: NsalinasLambda
         Handler: lambda_function.lambda_handler
         Runtime: python3.7
